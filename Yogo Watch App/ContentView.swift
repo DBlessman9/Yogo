@@ -7,17 +7,36 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
+    
+    @State private var navigateToBeginner = false
+    @State private var navigateToIntermediate = false
+
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            NavigationStack{
+                VStack {
+                        Text("Select your Vinyasa Yoga Level?")
+                            .frame(width: 200, height: 70)
+                            .foregroundColor(.darkPink)
+                            .fontWeight(.bold)
+                    
+                    Button("Beginner") {
+                        navigateToBeginner = true
+                    }
+                    .foregroundColor(.tan)
+                    
+                    Button("Intermediate") {
+                        navigateToIntermediate = true
+                    }
+                    .foregroundColor(.tan)
+
+                }
+                .padding()
+            }
         }
-        .padding()
     }
-}
 
 #Preview {
     ContentView()
