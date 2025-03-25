@@ -23,31 +23,35 @@ struct BeginnerLevel: View {
                 Spacer(minLength: 10)
 
                 
-                Button("Sun Salutation") {
-                    navigateToSunSalutation = true
+                NavigationLink("Sun Salutation")
+                {
+                    SunSalutation()
                 }
                 .foregroundColor(.tan)
-
-                Button("Gentle Morning Flow") {
-                    navigateToGentleMorningFlow = true
+                
+                NavigationLink("Gentle Morning Flow")
+                {
+                    GentleMorningFlow()
                 }
                 .foregroundColor(.tan)
-
-                Button("Strength & Balance") {
-                    navigateToStrengthAndBalance = true
+                
+                NavigationLink("Strength & Balance")
+                {
+                    StrengthBalance()
                 }
                 .foregroundColor(.tan)
-
-                Button("Hip Opener") {
-                    navigateToHipOpener = true
+                
+                NavigationLink("Hip Opener")
+                {
+                    HipOpener()
                 }
                 .foregroundColor(.tan)
-
-                Button("Wind Down") {
-                    navigateToWindDown = true
+                
+                NavigationLink("Wind Down")
+                {
+                    WindDown()
                 }
                 .foregroundColor(.tan)
-
             }
         }
     }

@@ -22,31 +22,35 @@ struct IntermediateLevel: View {
                     .fontWeight(.bold)
                 Spacer(minLength: 10)
                 
-                Button("Morning Energy Flow") {
-                    navigateToSunSalutation = true
+                NavigationLink("Energized Morning Flow")
+                {
+                    MorningFlow()
                 }
                 .foregroundColor(.tan)
-
-                Button("Strength & Balance II") {
-                    navigateToGentleMorningFlow = true
+                
+                NavigationLink("Strength & Balance II")
+                {
+                    StrengthBalance2()
                 }
                 .foregroundColor(.tan)
-
-                Button("Hip Openening & Flexibility") {
-                    navigateToStrengthAndBalance = true
+                
+                NavigationLink("Hip Opening & Flexability")
+                {
+                    HipOpener2()
                 }
                 .foregroundColor(.tan)
-
-                Button("Core-Focused Power Flow") {
-                    navigateToHipOpener = true
+                
+                NavigationLink("Core-Focused Power Flow")
+                {
+                    CoreFocusedPower()
                 }
                 .foregroundColor(.tan)
-
-                Button("Wind Down II") {
-                    navigateToWindDown = true
+                
+                NavigationLink("Wind Down II")
+                {
+                    WindDown2()
                 }
                 .foregroundColor(.tan)
-
             }
         }
     }

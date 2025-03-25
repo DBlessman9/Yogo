@@ -22,16 +22,17 @@ struct ContentView: View {
                             .foregroundColor(.darkPink)
                             .fontWeight(.bold)
                     
-                    Button("Beginner") {
-                        navigateToBeginner = true
+                    NavigationLink("Beginner")
+                    {
+                        BeginnerLevel()
                     }
                     .foregroundColor(.tan)
                     
-                    Button("Intermediate") {
-                        navigateToIntermediate = true
+                    NavigationLink("Intermediate")
+                    {
+                        IntermediateLevel()
                     }
                     .foregroundColor(.tan)
-
                 }
                 .padding()
             }
