@@ -6,13 +6,34 @@
 //
 
 import SwiftUI
+import HealthKit
+import Combine
+
 
 struct GentleMorningFlow: View {
+    @EnvironmentObject var currentYoga: CurrentYoga
+    @EnvironmentObject var audioManager: AudioManager
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Gentle Morning Flow")
+                .font(.headline)
+                .foregroundColor(.darkPink)
+                .padding()
+            
+            Button(audioManager.isPlaying ? "Pause Audio" : "Play Audio") {
+                audioManager.togglePlayback()
+            }
+            .foregroundColor(.tan)
+        }
+        .onAppear {
+            audioManager.loadAudio(filename: "GentleMorningFlow", fileType: "mp3")
+        }
     }
 }
 
 #Preview {
     GentleMorningFlow()
+        .environmentObject(AudioManager())
+        .environmentObject(CurrentYoga())
 }

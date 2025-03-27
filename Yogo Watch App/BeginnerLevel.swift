@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct BeginnerLevel: View {
+    @EnvironmentObject var currentYoga: CurrentYoga
+
     @State private var navigateToSunSalutation: Bool = false
     @State private var navigateToGentleMorningFlow: Bool = false
     @State private var navigateToStrengthAndBalance: Bool = false
@@ -25,31 +27,31 @@ struct BeginnerLevel: View {
                 
                 NavigationLink("Sun Salutation")
                 {
-                    SunSalutation()
+                    SetTime()
                 }
                 .foregroundColor(.tan)
                 
                 NavigationLink("Gentle Morning Flow")
                 {
-                    GentleMorningFlow()
+                    SetTime()
                 }
                 .foregroundColor(.tan)
                 
                 NavigationLink("Strength & Balance")
                 {
-                    StrengthBalance()
+                    SetTime()
                 }
                 .foregroundColor(.tan)
                 
                 NavigationLink("Hip Opener")
                 {
-                    HipOpener()
+                    SetTime()
                 }
                 .foregroundColor(.tan)
                 
                 NavigationLink("Wind Down")
                 {
-                    WindDown()
+                    SetTime()
                 }
                 .foregroundColor(.tan)
             }
@@ -58,4 +60,6 @@ struct BeginnerLevel: View {
 }
 #Preview {
     BeginnerLevel()
+        .environmentObject(AudioManager())
+        .environmentObject(CurrentYoga())
 }

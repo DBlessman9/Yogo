@@ -53,6 +53,7 @@
 		7B64EAC72D8AF64300573115 /* Yogo Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yogo Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B64EAD92D8AF64500573115 /* Yogo Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Yogo Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B64EAE32D8AF64500573115 /* Yogo Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Yogo Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8F5AB0D2D958C9900410DDD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.2.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -104,6 +105,7 @@
 				7B64EACB2D8AF64300573115 /* Yogo Watch App */,
 				7B64EADC2D8AF64500573115 /* Yogo Watch AppTests */,
 				7B64EAE62D8AF64500573115 /* Yogo Watch AppUITests */,
+				B8F5AB0C2D958C9900410DDD /* Frameworks */,
 				7B64EAC22D8AF64300573115 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -117,6 +119,14 @@
 				7B64EAE32D8AF64500573115 /* Yogo Watch AppUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		B8F5AB0C2D958C9900410DDD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B8F5AB0D2D958C9900410DDD /* AVFoundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

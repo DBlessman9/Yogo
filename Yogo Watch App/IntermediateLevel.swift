@@ -24,31 +24,31 @@ struct IntermediateLevel: View {
                 
                 NavigationLink("Energized Morning Flow")
                 {
-                    MorningFlow()
+                    SetTime()
                 }
                 .foregroundColor(.tan)
                 
                 NavigationLink("Strength & Balance II")
                 {
-                    StrengthBalance2()
+                    SetTime()
                 }
                 .foregroundColor(.tan)
                 
                 NavigationLink("Hip Opening & Flexability")
                 {
-                    HipOpener2()
+                    SetTime()
                 }
                 .foregroundColor(.tan)
                 
                 NavigationLink("Core-Focused Power Flow")
                 {
-                    CoreFocusedPower()
+                    SetTime()
                 }
                 .foregroundColor(.tan)
                 
                 NavigationLink("Wind Down II")
                 {
-                    WindDown2()
+                    SetTime()
                 }
                 .foregroundColor(.tan)
             }
@@ -58,4 +58,6 @@ struct IntermediateLevel: View {
 
 #Preview {
     IntermediateLevel()
+        .environmentObject(AudioManager())
+        .environmentObject(CurrentYoga())
 }

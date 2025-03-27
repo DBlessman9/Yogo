@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import HealthKit
+import AVKit
+import Combine
 
 @main
 struct Yogo_Watch_AppApp: App {

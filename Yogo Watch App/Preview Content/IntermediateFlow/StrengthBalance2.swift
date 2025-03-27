@@ -6,13 +6,32 @@
 //
 
 import SwiftUI
+import HealthKit
+import Combine
 
 struct StrengthBalance2: View {
+    @EnvironmentObject var currentYoga: CurrentYoga
+    @EnvironmentObject var audioManager: AudioManager
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Strength & Balance II")
+                .font(.headline)
+                .foregroundColor(.darkPink)
+                .padding()
+            
+            Button(audioManager.isPlaying ? "Pause Audio" : "Play Audio") {
+                audioManager.togglePlayback()
+            }
+            .foregroundColor(.tan)
+        }
+        .onAppear {
+            audioManager.loadAudio(filename: "StrengthBalanceFlow2", fileType: "mp3")
+        }
     }
 }
 
 #Preview {
     StrengthBalance2()
-}
+        .environmentObject(AudioManager())
+        .environmentObject(CurrentYoga())}

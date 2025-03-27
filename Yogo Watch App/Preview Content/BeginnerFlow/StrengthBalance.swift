@@ -6,8 +6,13 @@
 //
 
 import SwiftUI
+import HealthKit
+import Combine
+
 
 struct StrengthBalance: View {
+    @EnvironmentObject var currentYoga: CurrentYoga
+    @EnvironmentObject var audioManager: AudioManager
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
@@ -15,4 +20,6 @@ struct StrengthBalance: View {
 
 #Preview {
     StrengthBalance()
+        .environmentObject(AudioManager())
+        .environmentObject(CurrentYoga())
 }

@@ -41,4 +41,7 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-}
+            .environmentObject(AudioManager())
+            .environmentObject(CurrentYoga())
+    }
+

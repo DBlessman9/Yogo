@@ -6,8 +6,14 @@
 //
 
 import SwiftUI
+import HealthKit
+import Combine
+
 
 struct WindDown: View {
+    @EnvironmentObject var currentYoga: CurrentYoga
+    @EnvironmentObject var audioManager: AudioManager
+    
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
@@ -15,4 +21,6 @@ struct WindDown: View {
 
 #Preview {
     WindDown()
+        .environmentObject(AudioManager())
+        .environmentObject(CurrentYoga())
 }
