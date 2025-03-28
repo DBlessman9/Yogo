@@ -4,6 +4,7 @@ import Combine
 
 struct YogaFlowView: View {
     @EnvironmentObject var currentYoga: CurrentYoga
+    @State private var breathingSpeed: Double = 8.0
     let yogaFlows = [
         "GentleMorningFlow", "HipOpener", "StrengthBalance",
         "SunSalutation", "WindDown", "CoreFocusedPower",
@@ -17,9 +18,12 @@ struct YogaFlowView: View {
                 .padding()
 
             List(yogaFlows, id: \.self) { flow in
-                Button(action: {
-                    currentYoga.updateFlow(newFlow: flow)
-                }) {
+                NavigationLink {
+                    BreathingSpeedView(breathingSpeed: $breathingSpeed)
+                        .onAppear {
+                            currentYoga.updateFlow(flow: flow)
+                        }
+                } label: {
                     Text(flow)
                         .padding()
                 }

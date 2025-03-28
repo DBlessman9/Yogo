@@ -16,15 +16,17 @@ class CurrentYoga: ObservableObject {
     @Published var flowCount: Int
     @Published var heart: Double
     @Published var calories: Double
+    @Published var isIntermediate: Bool
 
     let healthStore = HKHealthStore()
 
-    init(flow: String = "GentleMorningFlowMP3", time: Int = 600, flowCount: Int = 0, heart: Double = 0, calories: Double = 0) {
+    init(flow: String = "GentleMorningFlowMP3", time: Int = 600, flowCount: Int = 0, heart: Double = 0, calories: Double = 0, isIntermediate: Bool = false) {
         self.flow = flow
         self.time = time
         self.flowCount = flowCount
         self.heart = heart
         self.calories = calories
+        self.isIntermediate = isIntermediate
     }
 
     func updateTime(selectedTime: Int) {
@@ -33,6 +35,10 @@ class CurrentYoga: ObservableObject {
 
     func updateFlow(newFlow: String) {
         self.flow = newFlow
+    }
+
+    func setLevel(isIntermediate: Bool) {
+        self.isIntermediate = isIntermediate
     }
 
     func fetchHealthData() {

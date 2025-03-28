@@ -8,47 +8,59 @@
 import SwiftUI
 
 struct IntermediateLevel: View {
-    @State private var navigateToSunSalutation: Bool = false
-    @State private var navigateToGentleMorningFlow: Bool = false
-    @State private var navigateToStrengthAndBalance: Bool = false
-    @State private var navigateToHipOpener: Bool = false
-    @State private var navigateToWindDown: Bool = false
+    @EnvironmentObject var currentYoga: CurrentYoga
+    @State private var breathingSpeed: Double = 8.0
     
     var body: some View {
-        NavigationStack{
-            ScrollView{
+        NavigationStack {
+            ScrollView {
                 Text("Intermediate Flows")
                     .foregroundColor(.darkPink)
                     .fontWeight(.bold)
                 Spacer(minLength: 10)
                 
-                NavigationLink("Energized Morning Flow")
-                {
-                    SetTime()
+                NavigationLink("Energized Morning Flow") {
+                    BreathingSpeedView(breathingSpeed: $breathingSpeed)
+                        .onAppear {
+                            currentYoga.setLevel("Intermediate")
+                            currentYoga.updateFlow(flow: "MorningFlow")
+                        }
                 }
                 .foregroundColor(.tan)
                 
-                NavigationLink("Strength & Balance II")
-                {
-                    SetTime()
+                NavigationLink("Strength & Balance II") {
+                    BreathingSpeedView(breathingSpeed: $breathingSpeed)
+                        .onAppear {
+                            currentYoga.setLevel("Intermediate")
+                            currentYoga.updateFlow(flow: "StrengthBalance2")
+                        }
                 }
                 .foregroundColor(.tan)
                 
-                NavigationLink("Hip Opening & Flexability")
-                {
-                    SetTime()
+                NavigationLink("Hip Opening & Flexability") {
+                    BreathingSpeedView(breathingSpeed: $breathingSpeed)
+                        .onAppear {
+                            currentYoga.setLevel("Intermediate")
+                            currentYoga.updateFlow(flow: "HipOpener2")
+                        }
                 }
                 .foregroundColor(.tan)
                 
-                NavigationLink("Core-Focused Power Flow")
-                {
-                    SetTime()
+                NavigationLink("Core-Focused Power Flow") {
+                    BreathingSpeedView(breathingSpeed: $breathingSpeed)
+                        .onAppear {
+                            currentYoga.setLevel("Intermediate")
+                            currentYoga.updateFlow(flow: "CoreFocusedPower")
+                        }
                 }
                 .foregroundColor(.tan)
                 
-                NavigationLink("Wind Down II")
-                {
-                    SetTime()
+                NavigationLink("Wind Down II") {
+                    BreathingSpeedView(breathingSpeed: $breathingSpeed)
+                        .onAppear {
+                            currentYoga.setLevel("Intermediate")
+                            currentYoga.updateFlow(flow: "WindDown2")
+                        }
                 }
                 .foregroundColor(.tan)
             }
@@ -56,8 +68,9 @@ struct IntermediateLevel: View {
     }
 }
 
-#Preview {
-    IntermediateLevel()
-        .environmentObject(AudioManager())
-        .environmentObject(CurrentYoga())
+struct IntermediateLevel_Previews: PreviewProvider {
+    static var previews: some View {
+        IntermediateLevel()
+            .environmentObject(CurrentYoga())
+    }
 }

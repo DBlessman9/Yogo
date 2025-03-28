@@ -7,41 +7,38 @@
 
 import SwiftUI
 
-
 struct ContentView: View {
-    
-    @State private var navigateToBeginner = false
-    @State private var navigateToIntermediate = false
-
+    @StateObject private var audioManager = AudioManager()
+    @StateObject private var currentYoga = CurrentYoga()
+    @State private var breathingSpeed: Double = 8.0
     
     var body: some View {
-            NavigationStack{
-                VStack {
-                        Text("Select your Vinyasa Yoga Level?")
-                            .frame(width: 200, height: 70)
-                            .foregroundColor(.darkPink)
-                            .fontWeight(.bold)
-                    
-                    NavigationLink("Beginner")
-                    {
-                        BeginnerLevel()
-                    }
-                    .foregroundColor(.tan)
-                    
-                    NavigationLink("Intermediate")
-                    {
-                        IntermediateLevel()
-                    }
-                    .foregroundColor(.tan)
+        NavigationStack {
+            ScrollView {
+                Text("Welcome to YoGo!")
+                    .foregroundColor(.darkPink)
+                    .fontWeight(.bold)
+                Spacer(minLength: 10)
+                
+                NavigationLink("Beginner") {
+                    BeginnerLevel()
                 }
-                .padding()
+                .foregroundColor(.tan)
+                
+                NavigationLink("Intermediate") {
+                    IntermediateLevel()
+                }
+                .foregroundColor(.tan)
             }
         }
+        .environmentObject(audioManager)
+        .environmentObject(currentYoga)
     }
+}
 
-#Preview {
-    ContentView()
-            .environmentObject(AudioManager())
-            .environmentObject(CurrentYoga())
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
+}
 
