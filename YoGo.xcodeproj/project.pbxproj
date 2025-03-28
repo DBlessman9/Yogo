@@ -1,0 +1,671 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7B23978A2D9639BB007DCFBB /* YoGo Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 7B2397892D9639BB007DCFBB /* YoGo Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7B23978B2D9639BB007DCFBB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B23977D2D9639BB007DCFBB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7B2397882D9639BB007DCFBB;
+			remoteInfo = "YoGo Watch App";
+		};
+		7B23979C2D9639BC007DCFBB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B23977D2D9639BB007DCFBB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7B2397882D9639BB007DCFBB;
+			remoteInfo = "YoGo Watch App";
+		};
+		7B2397A62D9639BC007DCFBB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B23977D2D9639BB007DCFBB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7B2397882D9639BB007DCFBB;
+			remoteInfo = "YoGo Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7B2397B22D9639BC007DCFBB /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				7B23978A2D9639BB007DCFBB /* YoGo Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		7B2397832D9639BB007DCFBB /* YoGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YoGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B2397892D9639BB007DCFBB /* YoGo Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "YoGo Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B23979B2D9639BC007DCFBB /* YoGo Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "YoGo Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B2397A52D9639BC007DCFBB /* YoGo Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "YoGo Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		7B23978D2D9639BB007DCFBB /* YoGo Watch App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "YoGo Watch App";
+			sourceTree = "<group>";
+		};
+		7B23979E2D9639BC007DCFBB /* YoGo Watch AppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "YoGo Watch AppTests";
+			sourceTree = "<group>";
+		};
+		7B2397A82D9639BC007DCFBB /* YoGo Watch AppUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "YoGo Watch AppUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7B2397862D9639BB007DCFBB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B2397982D9639BC007DCFBB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B2397A22D9639BC007DCFBB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7B23977C2D9639BB007DCFBB = {
+			isa = PBXGroup;
+			children = (
+				7B23978D2D9639BB007DCFBB /* YoGo Watch App */,
+				7B23979E2D9639BC007DCFBB /* YoGo Watch AppTests */,
+				7B2397A82D9639BC007DCFBB /* YoGo Watch AppUITests */,
+				7B2397842D9639BB007DCFBB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7B2397842D9639BB007DCFBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7B2397832D9639BB007DCFBB /* YoGo.app */,
+				7B2397892D9639BB007DCFBB /* YoGo Watch App.app */,
+				7B23979B2D9639BC007DCFBB /* YoGo Watch AppTests.xctest */,
+				7B2397A52D9639BC007DCFBB /* YoGo Watch AppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7B2397822D9639BB007DCFBB /* YoGo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B2397B32D9639BC007DCFBB /* Build configuration list for PBXNativeTarget "YoGo" */;
+			buildPhases = (
+				7B2397812D9639BB007DCFBB /* Resources */,
+				7B2397B22D9639BC007DCFBB /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7B23978C2D9639BB007DCFBB /* PBXTargetDependency */,
+			);
+			name = YoGo;
+			packageProductDependencies = (
+			);
+			productName = YoGo;
+			productReference = 7B2397832D9639BB007DCFBB /* YoGo.app */;
+			productType = "com.apple.product-type.application.watchapp2-container";
+		};
+		7B2397882D9639BB007DCFBB /* YoGo Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B2397AF2D9639BC007DCFBB /* Build configuration list for PBXNativeTarget "YoGo Watch App" */;
+			buildPhases = (
+				7B2397852D9639BB007DCFBB /* Sources */,
+				7B2397862D9639BB007DCFBB /* Frameworks */,
+				7B2397872D9639BB007DCFBB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				7B23978D2D9639BB007DCFBB /* YoGo Watch App */,
+			);
+			name = "YoGo Watch App";
+			packageProductDependencies = (
+			);
+			productName = "YoGo Watch App";
+			productReference = 7B2397892D9639BB007DCFBB /* YoGo Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7B23979A2D9639BC007DCFBB /* YoGo Watch AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B2397B62D9639BC007DCFBB /* Build configuration list for PBXNativeTarget "YoGo Watch AppTests" */;
+			buildPhases = (
+				7B2397972D9639BC007DCFBB /* Sources */,
+				7B2397982D9639BC007DCFBB /* Frameworks */,
+				7B2397992D9639BC007DCFBB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7B23979D2D9639BC007DCFBB /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				7B23979E2D9639BC007DCFBB /* YoGo Watch AppTests */,
+			);
+			name = "YoGo Watch AppTests";
+			packageProductDependencies = (
+			);
+			productName = "YoGo Watch AppTests";
+			productReference = 7B23979B2D9639BC007DCFBB /* YoGo Watch AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7B2397A42D9639BC007DCFBB /* YoGo Watch AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B2397B92D9639BC007DCFBB /* Build configuration list for PBXNativeTarget "YoGo Watch AppUITests" */;
+			buildPhases = (
+				7B2397A12D9639BC007DCFBB /* Sources */,
+				7B2397A22D9639BC007DCFBB /* Frameworks */,
+				7B2397A32D9639BC007DCFBB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7B2397A72D9639BC007DCFBB /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				7B2397A82D9639BC007DCFBB /* YoGo Watch AppUITests */,
+			);
+			name = "YoGo Watch AppUITests";
+			packageProductDependencies = (
+			);
+			productName = "YoGo Watch AppUITests";
+			productReference = 7B2397A52D9639BC007DCFBB /* YoGo Watch AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7B23977D2D9639BB007DCFBB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					7B2397822D9639BB007DCFBB = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					7B2397882D9639BB007DCFBB = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					7B23979A2D9639BC007DCFBB = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 7B2397882D9639BB007DCFBB;
+					};
+					7B2397A42D9639BC007DCFBB = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 7B2397882D9639BB007DCFBB;
+					};
+				};
+			};
+			buildConfigurationList = 7B2397802D9639BB007DCFBB /* Build configuration list for PBXProject "YoGo" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7B23977C2D9639BB007DCFBB;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 7B2397842D9639BB007DCFBB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7B2397822D9639BB007DCFBB /* YoGo */,
+				7B2397882D9639BB007DCFBB /* YoGo Watch App */,
+				7B23979A2D9639BC007DCFBB /* YoGo Watch AppTests */,
+				7B2397A42D9639BC007DCFBB /* YoGo Watch AppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7B2397812D9639BB007DCFBB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B2397872D9639BB007DCFBB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B2397992D9639BC007DCFBB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B2397A32D9639BC007DCFBB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7B2397852D9639BB007DCFBB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B2397972D9639BC007DCFBB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B2397A12D9639BC007DCFBB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7B23978C2D9639BB007DCFBB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7B2397882D9639BB007DCFBB /* YoGo Watch App */;
+			targetProxy = 7B23978B2D9639BB007DCFBB /* PBXContainerItemProxy */;
+		};
+		7B23979D2D9639BC007DCFBB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7B2397882D9639BB007DCFBB /* YoGo Watch App */;
+			targetProxy = 7B23979C2D9639BC007DCFBB /* PBXContainerItemProxy */;
+		};
+		7B2397A72D9639BC007DCFBB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7B2397882D9639BB007DCFBB /* YoGo Watch App */;
+			targetProxy = 7B2397A62D9639BC007DCFBB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		7B2397AD2D9639BC007DCFBB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7B2397AE2D9639BC007DCFBB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		7B2397B02D9639BC007DCFBB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"YoGo Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = BT952D3T8T;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = YoGo;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = msu.YoGo.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Debug;
+		};
+		7B2397B12D9639BC007DCFBB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"YoGo Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = BT952D3T8T;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = YoGo;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = msu.YoGo.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Release;
+		};
+		7B2397B42D9639BC007DCFBB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BT952D3T8T;
+				INFOPLIST_KEY_CFBundleDisplayName = YoGo;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = msu.YoGo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		7B2397B52D9639BC007DCFBB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BT952D3T8T;
+				INFOPLIST_KEY_CFBundleDisplayName = YoGo;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = msu.YoGo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7B2397B72D9639BC007DCFBB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BT952D3T8T;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "msu.YoGo-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YoGo Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/YoGo Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Debug;
+		};
+		7B2397B82D9639BC007DCFBB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BT952D3T8T;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "msu.YoGo-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YoGo Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/YoGo Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Release;
+		};
+		7B2397BA2D9639BC007DCFBB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BT952D3T8T;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "msu.YoGo-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "YoGo Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Debug;
+		};
+		7B2397BB2D9639BC007DCFBB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BT952D3T8T;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "msu.YoGo-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "YoGo Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7B2397802D9639BB007DCFBB /* Build configuration list for PBXProject "YoGo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B2397AD2D9639BC007DCFBB /* Debug */,
+				7B2397AE2D9639BC007DCFBB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B2397AF2D9639BC007DCFBB /* Build configuration list for PBXNativeTarget "YoGo Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B2397B02D9639BC007DCFBB /* Debug */,
+				7B2397B12D9639BC007DCFBB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B2397B32D9639BC007DCFBB /* Build configuration list for PBXNativeTarget "YoGo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B2397B42D9639BC007DCFBB /* Debug */,
+				7B2397B52D9639BC007DCFBB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B2397B62D9639BC007DCFBB /* Build configuration list for PBXNativeTarget "YoGo Watch AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B2397B72D9639BC007DCFBB /* Debug */,
+				7B2397B82D9639BC007DCFBB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B2397B92D9639BC007DCFBB /* Build configuration list for PBXNativeTarget "YoGo Watch AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B2397BA2D9639BC007DCFBB /* Debug */,
+				7B2397BB2D9639BC007DCFBB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7B23977D2D9639BB007DCFBB /* Project object */;
+}
