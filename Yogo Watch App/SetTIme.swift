@@ -120,48 +120,69 @@ struct SetTime: View {
     }
 
     func startTimer() {
-        totalSeconds = (selectedHours * 3600) + (selectedMinutes * 60) + selectedSeconds
-        if totalSeconds > 0 {
-            // Start workout session to keep app running in background
-            workoutManager.startWorkout()
-            
-            // Enable battery monitoring to help keep screen active
-            WKInterfaceDevice.current().isBatteryMonitoringEnabled = true
-            
-            // Enable haptics
-            hapticManager.startHaptics()
-            
-            withAnimation(.easeInOut(duration: 0.3)) {
-                isRunning = true
-                isPaused = false
-                showStopButton = true
-                breathingCycleCount = 0
-                isPositionChange = false
-            }
-            
-            // Cancel any existing timers before starting new ones
-            timer?.cancel()
-            breathingTimer?.cancel()
-            
-            // Start the main countdown timer with background execution
-            timer = Timer.publish(every: 1, on: .main, in: .common)
-                .autoconnect()
-                .sink { _ in
-                    if totalSeconds > 0 {
-                        totalSeconds -= 1
-                    } else {
-                        cleanupAndShowCongrats()
-                    }
+        // Prevent starting a new session if one is already running
+        guard !isRunning else {
+            print("Session already running, ignoring start request")
+            return
+        }
+        
+        print("Starting new timer session")
+        // First, ensure complete cleanup of any existing session
+        print("Cleaning up existing timers")
+        timer?.cancel()
+        breathingTimer?.cancel()
+        positionChangeTimer?.cancel()
+        timer = nil
+        breathingTimer = nil
+        positionChangeTimer = nil
+        hapticManager.stopAllHaptics()
+        
+        // Add a small delay to ensure cleanup is complete
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.totalSeconds = (self.selectedHours * 3600) + (self.selectedMinutes * 60) + self.selectedSeconds
+            if self.totalSeconds > 0 {
+                print("Initializing new session with \(self.totalSeconds) seconds")
+                // Start workout session to keep app running in background
+                self.workoutManager.startWorkout()
+                
+                // Enable battery monitoring to help keep screen active
+                WKInterfaceDevice.current().isBatteryMonitoringEnabled = true
+                
+                // Enable haptics
+                self.hapticManager.startHaptics()
+                
+                withAnimation(.easeInOut(duration: 0.3)) {
+                    self.isRunning = true
+                    self.isPaused = false
+                    self.showStopButton = true
+                    self.breathingCycleCount = 0
+                    self.isPositionChange = false
                 }
-            
-            // Start breathing haptics after a short delay to ensure proper synchronization
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                startBreathingHaptics()
+                
+                // Start the main countdown timer with background execution
+                print("Starting main countdown timer")
+                self.timer = Timer.publish(every: 1, on: .main, in: .common)
+                    .autoconnect()
+                    .sink { _ in
+                        if self.totalSeconds > 0 {
+                            self.totalSeconds -= 1
+                        } else {
+                            print("Timer reached zero, cleaning up")
+                            self.cleanupAndShowCongrats()
+                        }
+                    }
+                
+                // Start breathing haptics after a short delay to ensure proper synchronization
+                print("Scheduling breathing haptics start")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.startBreathingHaptics()
+                }
             }
         }
     }
 
     func startBreathingHaptics() {
+        print("Starting breathing haptics")
         let breathingCycle = breathingSpeed  // Use the selected breathing speed
         
         breathingTimer?.cancel()
@@ -178,9 +199,11 @@ struct SetTime: View {
                         
                         // Only increment cycle count after exhale is complete
                         breathingCycleCount += 1
+                        print("Completed breathing cycle \(breathingCycleCount)")
                         
                         // Check if we need to start position change after 3 complete cycles
                         if breathingCycleCount == 3 {
+                            print("Starting position change after 3 breathing cycles")
                             // Pause breathing cycle
                             breathingTimer?.cancel()
                             
@@ -196,11 +219,13 @@ struct SetTime: View {
     }
 
     func startPositionChange() {
+        print("Starting position change")
         isPositionChange = true
         hapticManager.startPositionChangeHaptic()
         
         // Resume breathing after 9 seconds
         DispatchQueue.main.asyncAfter(deadline: .now() + 9.0) {
+            print("Ending position change")
             hapticManager.stopPositionChangeHaptic()
             isPositionChange = false
             breathingCycleCount = 0  // Reset to start 3 more cycles
@@ -237,6 +262,7 @@ struct SetTime: View {
     }
 
     func stopTimer() {
+        print("Stopping timer")
         // Stop all timers
         timer?.cancel()
         breathingTimer?.cancel()
@@ -268,6 +294,7 @@ struct SetTime: View {
     }
 
     func cleanupAndShowCongrats() {
+        print("Cleaning up and showing congrats")
         // Stop all timers
         timer?.cancel()
         breathingTimer?.cancel()
