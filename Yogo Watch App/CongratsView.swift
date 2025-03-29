@@ -47,7 +47,10 @@ struct CongratsView: View {
                     .frame(maxWidth: .infinity, alignment: .center)
                     .multilineTextAlignment(.center)
                 
-                NavigationLink(destination: ContentView(), isActive: $navigateToContentView) {
+                Button {
+                    showCongrats = false
+                    navigateToContentView = true
+                } label: {
                     Text("Done")
                         .font(.system(size: 22, weight: .bold))
                         .foregroundColor(.pink)
@@ -62,6 +65,9 @@ struct CongratsView: View {
                 WKInterfaceDevice.current().play(.success)
                 // Record the usage when the congrats view appears
                 appUsageTracker.recordUsage(duration: currentYoga.elapsedTime)
+            }
+            .navigationDestination(isPresented: $navigateToContentView) {
+                ContentView()
             }
         }
     }

@@ -1,10 +1,12 @@
 import SwiftUI
 import WatchKit
 import Combine
+import HealthKit
 
 struct SetTime: View {
     @EnvironmentObject var currentYoga: CurrentYoga
     @StateObject private var hapticManager = YogaHapticManager.shared
+    @StateObject private var workoutManager = WorkoutManager.shared
     let breathingSpeed: Double
     @State private var selectedHours = 0
     @State private var selectedMinutes = 0
@@ -116,8 +118,14 @@ struct SetTime: View {
     func startTimer() {
         totalSeconds = (selectedHours * 3600) + (selectedMinutes * 60) + selectedSeconds
         if totalSeconds > 0 {
+            // Start workout session to keep app running in background
+            workoutManager.startWorkout()
+            
             // Enable battery monitoring to help keep screen active
             WKInterfaceDevice.current().isBatteryMonitoringEnabled = true
+            
+            // Enable haptics
+            hapticManager.startHaptics()
             
             withAnimation(.easeInOut(duration: 0.3)) {
                 isRunning = true
@@ -131,7 +139,7 @@ struct SetTime: View {
             timer?.cancel()
             breathingTimer?.cancel()
             
-            // Start the main countdown timer
+            // Start the main countdown timer with background execution
             timer = Timer.publish(every: 1, on: .main, in: .common)
                 .autoconnect()
                 .sink { _ in
@@ -185,10 +193,11 @@ struct SetTime: View {
 
     func startPositionChange() {
         isPositionChange = true
-        hapticManager.playPositionChangeHaptic()
+        hapticManager.startPositionChangeHaptic()
         
         // Resume breathing after 9 seconds
         DispatchQueue.main.asyncAfter(deadline: .now() + 9.0) {
+            hapticManager.stopPositionChangeHaptic()
             isPositionChange = false
             breathingCycleCount = 0  // Reset to start 3 more cycles
             startBreathingHaptics()  // Restart the breathing cycle
@@ -200,6 +209,7 @@ struct SetTime: View {
         breathingTimer?.cancel()
         timer = nil
         breathingTimer = nil
+        hapticManager.stopAllHaptics()
         isPaused = true
     }
 
@@ -229,6 +239,10 @@ struct SetTime: View {
         timer = nil
         breathingTimer = nil
         positionChangeTimer = nil
+        hapticManager.stopAllHaptics()
+        
+        // End workout session
+        workoutManager.endWorkout()
         
         // Allow screen to dim when timer is stopped
         WKInterfaceDevice.current().isBatteryMonitoringEnabled = false
@@ -245,10 +259,37 @@ struct SetTime: View {
         let elapsedTime = Double((selectedHours * 3600) + (selectedMinutes * 60) + selectedSeconds - totalSeconds)
         currentYoga.updateElapsedTime(elapsedTime)
     }
-    
-    private func cleanupAndShowCongrats() {
-        stopTimer()
-        showCongrats = true
+
+    func cleanupAndShowCongrats() {
+        // Stop all timers
+        timer?.cancel()
+        breathingTimer?.cancel()
+        positionChangeTimer?.cancel()
+        timer = nil
+        breathingTimer = nil
+        positionChangeTimer = nil
+        
+        // Stop all haptics
+        hapticManager.stopAllHaptics()
+        
+        // End workout session
+        workoutManager.endWorkout()
+        
+        // Allow screen to dim
+        WKInterfaceDevice.current().isBatteryMonitoringEnabled = false
+        
+        withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
+            isRunning = false
+            isPaused = false
+            showStopButton = false
+            breathingCycleCount = 0
+            isPositionChange = false
+            showCongrats = true
+        }
+        
+        // Update elapsed time in CurrentYoga
+        let elapsedTime = Double((selectedHours * 3600) + (selectedMinutes * 60) + selectedSeconds)
+        currentYoga.updateElapsedTime(elapsedTime)
     }
 
     func formatTime(_ seconds: Int) -> String {
