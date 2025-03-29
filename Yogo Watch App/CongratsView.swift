@@ -6,7 +6,7 @@ struct CongratsView: View {
     @EnvironmentObject var currentYoga: CurrentYoga
     @StateObject private var appUsageTracker = AppUsageTracker.shared
     @Binding var showCongrats: Bool
-    @State private var navigateToContentView = false
+    @Binding var navigateToWelcome: Bool
     
     private var congratulatoryMessage: String {
         let starImage = appUsageTracker.determineStarImage()
@@ -25,50 +25,46 @@ struct CongratsView: View {
     }
     
     var body: some View {
-        NavigationStack {
-            VStack(spacing: 0) {
-                Image(appUsageTracker.determineStarImage())
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 150, height: 150)
-                    .padding(.top, -20)
-                
-                Text(congratulatoryMessage)
-                    .font(.title3)
-                    .fontWeight(.bold)
-                    .foregroundColor(.darkPink)
-                    .padding(.top, -30)
-                
-                Text("You completed \(formatTime(currentYoga.elapsedTime)) of yoga!")
-                    .font(.system(size: 12))
-                    .foregroundColor(.tan)
-                    .padding(.top, 2)
-                    .frame(height: 60)
-                    .frame(maxWidth: .infinity, alignment: .center)
-                    .multilineTextAlignment(.center)
-                
-                Button {
-                    showCongrats = false
-                    navigateToContentView = true
-                } label: {
-                    Text("Done")
-                        .font(.system(size: 22, weight: .bold))
-                        .foregroundColor(.pink)
-                        .frame(width: 175)
-                        .padding(.vertical, 12)
-                        .background(Color.tan)
-                        .cornerRadius(30)
-                }
-                .padding(.bottom, 40)
+        VStack(spacing: 0) {
+            Image(appUsageTracker.determineStarImage())
+                .resizable()
+                .scaledToFill()
+                .frame(width: 150, height: 150)
+                .padding(.top, 10)
+            
+            Text(congratulatoryMessage)
+                .font(.title3)
+                .fontWeight(.bold)
+                .foregroundColor(.darkPink)
+                .padding(.top, -30)
+            
+            Text("You completed \(formatTime(currentYoga.elapsedTime)) of yoga!")
+                .font(.system(size: 12))
+                .foregroundColor(.tan)
+                .padding(.bottom, -10)
+                .frame(height: 50)
+                .frame(maxWidth: .infinity, alignment: .center)
+                .multilineTextAlignment(.center)
+            
+            Button {
+                showCongrats = false
+                navigateToWelcome = true
+            } label: {
+                Text("Done")
+                    .font(.system(size: 22, weight: .bold))
+                    .foregroundColor(.pink)
+                    .frame(width: 170)
+                    .padding(.vertical, 12)
+                    .background(Color.tan)
+                    .cornerRadius(30)
             }
-            .onAppear {
-                WKInterfaceDevice.current().play(.success)
-                // Record the usage when the congrats view appears
-                appUsageTracker.recordUsage(duration: currentYoga.elapsedTime)
-            }
-            .navigationDestination(isPresented: $navigateToContentView) {
-                ContentView()
-            }
+            .padding(.bottom, 70)
+            
+        }
+        .onAppear {
+            WKInterfaceDevice.current().play(.success)
+            // Record the usage when the congrats view appears
+            appUsageTracker.recordUsage(duration: currentYoga.elapsedTime)
         }
     }
     
@@ -86,6 +82,6 @@ struct CongratsView: View {
 }
 
 #Preview {
-    CongratsView(showCongrats: .constant(true))
+    CongratsView(showCongrats: .constant(true), navigateToWelcome: .constant(false))
         .environmentObject(CurrentYoga())
 } 

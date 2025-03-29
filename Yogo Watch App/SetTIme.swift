@@ -21,6 +21,7 @@ struct SetTime: View {
     @State private var positionChangeTimer: AnyCancellable? = nil
     @State private var breathingCycleCount = 0
     @State private var isPositionChange = false
+    @State private var navigateToWelcome = false
 
     let hoursRange = Array(0...23)
     let minutesRange = Array(0...59)
@@ -111,7 +112,10 @@ struct SetTime: View {
         }
         .animation(.spring(response: 0.3, dampingFraction: 0.7), value: isRunning)
         .fullScreenCover(isPresented: $showCongrats) {
-            CongratsView(showCongrats: $showCongrats)
+            CongratsView(showCongrats: $showCongrats, navigateToWelcome: $navigateToWelcome)
+        }
+        .navigationDestination(isPresented: $navigateToWelcome) {
+            ContentView()
         }
     }
 
@@ -233,12 +237,15 @@ struct SetTime: View {
     }
 
     func stopTimer() {
+        // Stop all timers
         timer?.cancel()
         breathingTimer?.cancel()
         positionChangeTimer?.cancel()
         timer = nil
         breathingTimer = nil
         positionChangeTimer = nil
+        
+        // Stop all haptics
         hapticManager.stopAllHaptics()
         
         // End workout session
@@ -278,18 +285,21 @@ struct SetTime: View {
         // Allow screen to dim
         WKInterfaceDevice.current().isBatteryMonitoringEnabled = false
         
-        withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
-            isRunning = false
-            isPaused = false
-            showStopButton = false
-            breathingCycleCount = 0
-            isPositionChange = false
-            showCongrats = true
-        }
-        
         // Update elapsed time in CurrentYoga
         let elapsedTime = Double((selectedHours * 3600) + (selectedMinutes * 60) + selectedSeconds)
         currentYoga.updateElapsedTime(elapsedTime)
+        
+        // Add a small delay before showing congrats to ensure cleanup is complete
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
+                isRunning = false
+                isPaused = false
+                showStopButton = false
+                breathingCycleCount = 0
+                isPositionChange = false
+                showCongrats = true
+            }
+        }
     }
 
     func formatTime(_ seconds: Int) -> String {
