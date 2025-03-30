@@ -30,6 +30,7 @@ struct ContentView: View {
                 }
                 .foregroundColor(.tan)
             }
+            .navigationBarBackButtonHidden()
         }
         .environmentObject(audioManager)
         .environmentObject(currentYoga)
