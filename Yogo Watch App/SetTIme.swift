@@ -117,6 +117,7 @@ struct SetTime: View {
         .navigationDestination(isPresented: $navigateToWelcome) {
             ContentView()
         }
+        .navigationBarBackButtonHidden(isRunning)
     }
 
     func startTimer() {
