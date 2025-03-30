@@ -4,13 +4,12 @@ import WatchKit
 struct CongratsView: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var currentYoga: CurrentYoga
-    @StateObject private var appUsageTracker = AppUsageTracker.shared
+    @EnvironmentObject var appUsageTracker: AppUsageTracker
     @Binding var showCongrats: Bool
     @Binding var navigateToWelcome: Bool
     
     private var congratulatoryMessage: String {
-        let starImage = appUsageTracker.determineStarImage()
-        switch starImage {
+        switch appUsageTracker.currentStarImage {
         case "StarSuper":
             return "Go Super Star!"
         case "StarHappy":
@@ -26,7 +25,7 @@ struct CongratsView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            Image(appUsageTracker.determineStarImage())
+            Image(appUsageTracker.currentStarImage)
                 .resizable()
                 .scaledToFill()
                 .frame(width: 150, height: 150)
@@ -84,4 +83,5 @@ struct CongratsView: View {
 #Preview {
     CongratsView(showCongrats: .constant(true), navigateToWelcome: .constant(false))
         .environmentObject(CurrentYoga())
+        .environmentObject(AppUsageTracker.shared)
 } 

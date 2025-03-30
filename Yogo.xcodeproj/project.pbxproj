@@ -61,7 +61,6 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Logic.swift,
-				"Yogo-Watch-App-Info.plist",
 			);
 			target = 7B64EAC62D8AF64300573115 /* Yogo Watch App */;
 		};

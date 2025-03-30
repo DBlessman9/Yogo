@@ -190,28 +190,42 @@ struct SetTime: View {
         breathingTimer = Timer.publish(every: breathingCycle, on: .main, in: .common)
             .autoconnect()
             .sink { _ in
-                if !isPositionChange {
+                guard self.isRunning else {
+                    print("Timer no longer running, stopping breathing cycle")
+                    return
+                }
+                
+                if !self.isPositionChange {
                     // Play breathe in haptic
-                    hapticManager.playBreatheInHaptic()
+                    self.hapticManager.playBreatheInHaptic()
                     
                     // Play breathe out haptic after 50% of the cycle (equal inhale and exhale)
                     DispatchQueue.main.asyncAfter(deadline: .now() + (breathingCycle * 0.5)) {
-                        hapticManager.playBreatheOutHaptic()
+                        guard self.isRunning else {
+                            print("Timer no longer running, skipping exhale")
+                            return
+                        }
+                        
+                        self.hapticManager.playBreatheOutHaptic()
                         
                         // Only increment cycle count after exhale is complete
-                        breathingCycleCount += 1
-                        print("Completed breathing cycle \(breathingCycleCount)")
+                        self.breathingCycleCount += 1
+                        print("Completed breathing cycle \(self.breathingCycleCount)")
                         
                         // Check if we need to start position change after 3 complete cycles
-                        if breathingCycleCount == 3 {
+                        if self.breathingCycleCount == 3 {
                             print("Starting position change after 3 breathing cycles")
                             // Pause breathing cycle
-                            breathingTimer?.cancel()
+                            self.breathingTimer?.cancel()
                             
                             // Add delay before position change (half of breathing cycle)
                             let delayBeforePositionChange = breathingCycle * 0.5
                             DispatchQueue.main.asyncAfter(deadline: .now() + delayBeforePositionChange) {
-                                startPositionChange()
+                                guard self.isRunning else {
+                                    print("Timer no longer running, skipping position change")
+                                    return
+                                }
+                                self.startPositionChange()
                             }
                         }
                     }
@@ -317,14 +331,16 @@ struct SetTime: View {
         let elapsedTime = Double((selectedHours * 3600) + (selectedMinutes * 60) + selectedSeconds)
         currentYoga.updateElapsedTime(elapsedTime)
         
+        // Reset all state variables
+        isRunning = false
+        isPaused = false
+        showStopButton = false
+        breathingCycleCount = 0
+        isPositionChange = false
+        
         // Add a small delay before showing congrats to ensure cleanup is complete
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
-                isRunning = false
-                isPaused = false
-                showStopButton = false
-                breathingCycleCount = 0
-                isPositionChange = false
                 showCongrats = true
             }
         }

@@ -13,6 +13,8 @@ import WatchKit
 
 @main
 struct Yogo_Watch_AppApp: App {
+    @StateObject private var appUsageTracker = AppUsageTracker.shared
+    
     init() {
         // Enable battery monitoring to help keep screen active
         WKInterfaceDevice.current().isBatteryMonitoringEnabled = true
@@ -21,6 +23,7 @@ struct Yogo_Watch_AppApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(appUsageTracker)
                 .onAppear {
                     // Keep screen on while app is active
                     WKInterfaceDevice.current().isBatteryMonitoringEnabled = true
