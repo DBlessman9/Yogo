@@ -51,14 +51,18 @@ struct CongratsView: View {
             } label: {
                 Text("Done")
                     .font(.system(size: 22, weight: .bold))
-                    .foregroundColor(.pink)
-                    .frame(width: 170)
+                    .foregroundColor(.tan)
+                    .frame(width: 180, height: 30)
                     .padding(.vertical, 12)
-                    .background(Color.tan)
+                    .background(Color.buttonAccent)
                     .cornerRadius(30)
             }
             .padding(.bottom, 70)
             
+        }
+        .navigationBarBackButtonHidden(true)
+        .navigationDestination(isPresented: $navigateToWelcome) {
+            ContentView()
         }
         .onAppear {
             WKInterfaceDevice.current().play(.success)

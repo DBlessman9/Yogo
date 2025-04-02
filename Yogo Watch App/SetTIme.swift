@@ -78,6 +78,8 @@ struct SetTime: View {
                         }
                     }
                     .pickerStyle(WheelPickerStyle())
+                    .tint(.darkPink)
+                   
 
                     Picker("Minutes", selection: $selectedMinutes) {
                         ForEach(minutesRange, id: \.self) { minute in
@@ -85,6 +87,8 @@ struct SetTime: View {
                         }
                     }
                     .pickerStyle(WheelPickerStyle())
+                    .tint(.darkPink)
+                    
 
                     Picker("Seconds", selection: $selectedSeconds) {
                         ForEach(secondsRange, id: \.self) { second in
@@ -92,7 +96,10 @@ struct SetTime: View {
                         }
                     }
                     .pickerStyle(WheelPickerStyle())
+                    .tint(.darkPink)
+                   
                 }
+                .accentColor(.darkPink)
                 .transition(.scale.combined(with: .opacity))
 
                 Button {
@@ -103,16 +110,18 @@ struct SetTime: View {
                     }
                 } label: {
                     Text("Go!")
+                        .font(.system(size: 22, weight: .bold))
                         .padding()
-                        .foregroundColor(.white)
+                        .foregroundColor(.tan)
                         .cornerRadius(10)
                 }
-                .foregroundColor(.green)
+                .foregroundColor(.tan)
             }
         }
         .animation(.spring(response: 0.3, dampingFraction: 0.7), value: isRunning)
-        .fullScreenCover(isPresented: $showCongrats) {
+        .navigationDestination(isPresented: $showCongrats) {
             CongratsView(showCongrats: $showCongrats, navigateToWelcome: $navigateToWelcome)
+                .navigationBarBackButtonHidden(true)
         }
         .navigationDestination(isPresented: $navigateToWelcome) {
             ContentView()

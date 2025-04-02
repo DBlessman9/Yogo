@@ -22,8 +22,11 @@ struct ContentView: View {
                 
                 NavigationLink("Beginner") {
                     BeginnerLevel()
+                .foregroundColor(.darkPink)
                 }
                 .foregroundColor(.tan)
+                .cornerRadius(30)
+                
                 
                 NavigationLink("Intermediate") {
                     IntermediateLevel()

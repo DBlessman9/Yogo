@@ -39,6 +39,7 @@ struct BeginnerLevel: View {
                 
                 NavigationLink("Strength & Balance") {
                     BreathingSpeedView(breathingSpeed: $breathingSpeed)
+                        .foregroundColor(.darkPink)
                         .onAppear {
                             currentYoga.setLevel("Beginner")
                             currentYoga.updateFlow(flow: "StrengthBalance")

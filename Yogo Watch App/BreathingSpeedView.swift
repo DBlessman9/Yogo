@@ -24,6 +24,7 @@ struct BreathingSpeedView: View {
         VStack(spacing: 8) {
             Text("Breathing Speed")
                 .font(.headline)
+                .bold()
                 .foregroundColor(.darkPink)
                 .padding(.top, 20)
             
@@ -39,7 +40,7 @@ struct BreathingSpeedView: View {
                         }) {
                             Image(systemName: "chevron.up")
                                 .font(.system(size: 18, weight: .semibold))
-                                .foregroundColor(.blue)
+                                .foregroundColor(.tan)
                                 .contentShape(Rectangle())
                                 .padding(4)
                         }
@@ -52,9 +53,9 @@ struct BreathingSpeedView: View {
                         }) {
                             Image(systemName: "chevron.down")
                                 .font(.system(size: 18, weight: .semibold))
-                                .foregroundColor(.blue)
+                                .foregroundColor(.tan)
                                 .contentShape(Rectangle())
-                                .padding(4)
+                                .padding(.top, 4)
                         }
                         .buttonStyle(PlainButtonStyle())
                     }
@@ -63,28 +64,31 @@ struct BreathingSpeedView: View {
                     .digitalCrownRotation($breathingSpeed, from: 6, through: 12, by: 1, sensitivity: .medium, isContinuous: false, isHapticFeedbackEnabled: true)
                     
                     Text("\(Int(breathingSpeed))s")
-                        .font(.system(.title2, design: .rounded))
-                        .foregroundColor(.blue)
+                        .font(.system(size:50, weight:.semibold))
+                        .foregroundColor(.tan)
                 }
+                .padding(-5)
             }
             
             Spacer()
             
-            Button(action: {}) {
                 NavigationLink(destination: SetTime(breathingSpeed: breathingSpeed)) {
                     Text("Continue")
                         .font(.system(size: 22, weight: .bold))
-                        .foregroundColor(.darkPink)
+                        .foregroundColor(.tan)
                         .frame(width: 175)
                         .padding(.vertical, 12)
-                        .background(Color.tan)
+                        .background(.buttonAccent)
                         .cornerRadius(30)
                         .scaledToFill()
                 }
-            }
-            .buttonStyle(PlainButtonStyle())
+           .buttonStyle(PlainButtonStyle())
             .padding(.horizontal)
+            .padding(.bottom, 15)
+           .foregroundColor(.tan)
+           
         }
+        .foregroundColor(.tan)
         .padding()
     }
 }
