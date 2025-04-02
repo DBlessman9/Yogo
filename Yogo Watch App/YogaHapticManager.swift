@@ -1,14 +1,38 @@
 import Foundation
 import WatchKit
+import AVFoundation
 
 class YogaHapticManager: ObservableObject {
     static let shared = YogaHapticManager()
     
     private var positionChangeTimer: Timer?
     private var isHapticsEnabled = false
+    private var breatheInPlayer: AVAudioPlayer?
+    private var breatheOutPlayer: AVAudioPlayer?
     
     private init() {
         print("YogaHapticManager initialized")
+        setupAudioPlayers()
+    }
+    
+    private func setupAudioPlayers() {
+        if let breatheInURL = Bundle.main.url(forResource: "breatheIn", withExtension: "mp3") {
+            do {
+                breatheInPlayer = try AVAudioPlayer(contentsOf: breatheInURL)
+                breatheInPlayer?.prepareToPlay()
+            } catch {
+                print("Error loading breathe in sound: \(error)")
+            }
+        }
+        
+        if let breatheOutURL = Bundle.main.url(forResource: "breatheOut", withExtension: "mp3") {
+            do {
+                breatheOutPlayer = try AVAudioPlayer(contentsOf: breatheOutURL)
+                breatheOutPlayer?.prepareToPlay()
+            } catch {
+                print("Error loading breathe out sound: \(error)")
+            }
+        }
     }
     
     func startHaptics() {
@@ -21,8 +45,10 @@ class YogaHapticManager: ObservableObject {
             print("Haptics disabled, skipping breathe in")
             return 
         }
-        print("Playing breathe in haptic")
+        print("Playing breathe in haptic and sound")
         WKInterfaceDevice.current().play(.notification)
+        breatheInPlayer?.currentTime = 0
+        breatheInPlayer?.play()
     }
     
     func playBreatheOutHaptic() {
@@ -30,8 +56,10 @@ class YogaHapticManager: ObservableObject {
             print("Haptics disabled, skipping breathe out")
             return 
         }
-        print("Playing breathe out haptic")
+        print("Playing breathe out haptic and sound")
         WKInterfaceDevice.current().play(.success)
+        breatheOutPlayer?.currentTime = 0
+        breatheOutPlayer?.play()
     }
     
     func startPositionChangeHaptic() {
@@ -66,9 +94,11 @@ class YogaHapticManager: ObservableObject {
     }
     
     func stopAllHaptics() {
-        print("Stopping all haptics")
+        print("Stopping all haptics and sounds")
         isHapticsEnabled = false
         stopPositionChangeHaptic()
+        breatheInPlayer?.stop()
+        breatheOutPlayer?.stop()
     }
 } 
 
